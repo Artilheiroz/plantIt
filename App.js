@@ -1,21 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { View, Text } from "react-native";
+import { AppRegistry } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function App() {
+import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import MainMenu from "./app/screens/MainMenu";
+import ConfigurePlantScreen from "./app/screens/ConfigurePlantScreen";
+import ListPlantsScreen from "./app/screens/ListPlantsScreen";
+import ConfigurePlantationScreen from "./app/screens/ConfigurePlantationScreen";
+
+const Stack = createStackNavigator();
+
+function MainStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MainMenu"
+        component={MainMenu}
+        options={{
+          title: "Menu Principal",
+        }}
+      />
+      <Stack.Screen
+        name="AddPlant"
+        component={ConfigurePlantScreen}
+        options={{
+          title: "Cadastro de Planta",
+        }}
+      />
+      <Stack.Screen
+        name="ListPlants"
+        component={ListPlantsScreen}
+        options={{
+          title: "Lista de Plantas",
+        }}
+      />
+      <Stack.Screen
+        name="ConfigurePlantation"
+        component={ConfigurePlantationScreen}
+        options={{
+          title: "Configuração da Horta",
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
+  );
+}
