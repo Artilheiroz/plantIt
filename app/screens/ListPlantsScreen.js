@@ -9,14 +9,15 @@ import {
   Cols,
   Cell,
 } from "react-native-table-component";
-
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import data from "../data/DummyData";
+import { Button } from "galio-framework";
 
 const tableHead = [
   "Código",
   "Nome",
   "Tipo",
-  "Temperatura Ideal",
+  "Temperatura Ideal ",
   "Humidade Ideal",
 ];
 
@@ -41,6 +42,11 @@ function ListPlantsScreen({ navigation }) {
         <Row data={tableHead} />
         <Rows data={dados} />
       </Table>
+      <TouchableWithoutFeedback onPress={() => loadData()}>
+        <Button round color="#2DCA66">
+          Reload Table
+        </Button>
+      </TouchableWithoutFeedback>
     </View>
   );
 

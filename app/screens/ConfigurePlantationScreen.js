@@ -13,6 +13,8 @@ function ConfigurePlantationScreen({ navigation }) {
           name: "",
           plantType: "",
           amount: "",
+          plantDate: "",
+          estimatedFinishDate: "",
         }}
         onSubmit={(values) => {}}
       >
@@ -36,6 +38,18 @@ function ConfigurePlantationScreen({ navigation }) {
               onChangeText={formikProps.handleChange("amount")}
               value={formikProps.values.amount}
               keyboardType="numeric"
+            ></TextInput>
+            <TextInput
+              style={styles.input}
+              placeholder="Data do Plantio"
+              onChangeText={formikProps.handleChange("plantDate")}
+              value={formikProps.values.plantDate}
+            ></TextInput>
+            <TextInput
+              style={styles.input}
+              placeholder="Data Extimada para colheita"
+              onChangeText={formikProps.handleChange("estimatedFinishDate")}
+              value={formikProps.values.estimatedFinishDate}
             ></TextInput>
 
             <TouchableWithoutFeedback

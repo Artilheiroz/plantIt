@@ -32,6 +32,22 @@ function MainMenu({ navigation }) {
           Listar Plantas
         </Button>
       </TouchableWithoutFeedback>
+
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("ListPlants")}
+      >
+        <Button round color="#2DCA66">
+          Histórico
+        </Button>
+      </TouchableWithoutFeedback>
+
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("ListPlants")}
+      >
+        <Button round color="#2DCA66">
+          Status Atual da Horta
+        </Button>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 }
